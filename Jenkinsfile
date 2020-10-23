@@ -45,7 +45,7 @@ pipeline {
         }
         stage('app deploy') {
             agent {
-                docker { image 'kubernetes' }
+                docker { image 'docker' }
             }
             steps {
                 script {

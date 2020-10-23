@@ -43,6 +43,7 @@
 - after testing the pipeline, I realized I had the wrong docker image and updated that and made sure the gradlew command had necessary permissions
 - the pipeline failed again this time saying that "Failed to check if project 'AaronDownward_sample-spring-boot' is bound"
     - I believe this is because I forgot to give it the appropriate SonarQube environment, so I update Jenkinsfile to try again
+- That last change allowed the step to successfully run
 
 # Task 4: Setup docker build and docker push
 - while waiting for the pipeline to run I installed Gradle to test building the image locally
@@ -51,6 +52,17 @@
     - I started editing the Jenkinsfile in the Docker build step
         - added a simple docker build command
         - wasn't sure if the image would include the previously build jar file so I commented out the longer sonar stage for testing
+        - After running the pipeline failed saying docker not recognized
+        - so I used the docker.withtool method, using the docker I configured in global tools
+        - also had to fix a couple of typos/formatting issues
+        - realized I was missing the docker plugin, so I installed that
+
+# Task 5: Setup Application deployment onto your local kubernetes
+
+- last minute work on kubectl deployment
+- I deployed locally first
+- added the rollout restart command in pipeline to update deployment
+
 
 
 

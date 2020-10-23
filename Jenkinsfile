@@ -48,7 +48,9 @@ pipeline {
                 docker { image 'kubernetes' }
             }
             steps {
-                sh 'kubectl rollout restart deployment/sample-spring-boot -n application'
+                script {
+                    kubernetesDeploy(configs: "kubernetes.yml")
+                }
             }
         }
     }

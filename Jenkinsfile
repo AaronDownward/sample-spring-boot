@@ -49,7 +49,7 @@ pipeline {
             }
             steps {
                 script {
-                    kubernetesApply(configs: "kubernetes.yml")
+                    kubernetesDeploy(configs: "kubernetes.yml")
                 }
             }
         }
